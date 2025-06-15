@@ -58,6 +58,7 @@ class Book(models.Model):
         "ISBN",
         max_length=13,
         unique=True,
+        null=True
         help_text='13 Character <a href="https://www.isbn-international.org/content/what-isbn'
         '">ISBN number</a>',
     )
