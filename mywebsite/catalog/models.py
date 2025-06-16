@@ -58,8 +58,8 @@ class Project(models.Model):
     )
 
     # Setting up skills and tech relations
-    tech = models.ManyToManyField("Technology", null=True)
-    skills = models.ManyToManyField("Skill", null=True)
+    tech = models.ManyToManyField("Technology")
+    skills = models.ManyToManyField("Skill")
 
     # Links to Relevant Stuff
     project_git = models.URLField(max_length=50, null=True)
@@ -80,7 +80,7 @@ class Project(models.Model):
 class Technology(models.Model):
     """Model representing a Specific Technology"""
 
-    name = models.CharField(max_length=50)
+    title = models.CharField(max_length=50)
     description = models.CharField(max_length=500)
 
     def __str__(self):
@@ -95,7 +95,7 @@ class Technology(models.Model):
 class Skill(models.Model):
     """Model representing a Specific Skill"""
 
-    name = models.CharField(max_length=50)
+    title = models.CharField(max_length=50)
     description = models.CharField(max_length=500)
 
     def __str__(self):
