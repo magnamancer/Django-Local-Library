@@ -1,0 +1,76 @@
+{% extends "generic.html" %}
+
+{% block content %}
+{% load static %}
+<div id="main" class="alt">
+    
+    <!-- One -->
+        <section id="one">
+            <div class="inner">
+                <header class="major">
+                    <h1>Extended Resume</h1>
+                </header>
+                <span class="image main"><img src="{% static 'images/pic11.jpg' %}" alt="" /></span>
+                <p>I'm Fenton Clawson, a recent graduate of the PhD program at the West Virginia University department of physics and astronomy. The focus of my thesis was creating a new solver for open quantum systems under cyclical driving using Floquet theory, which can be understood as the temporal analog of Bloch theory. Along the way to get that thesis, I gathered a wide array of computational and experimental knowledge and experience in both my undergraduate and graduate career. While my area of expertise is physics, I have a deep love of mathematics, spanning from calculus to combinatorics and graph theory to stochastic systems, and fulfilled requirements for a mathematics minor in undergraduate.</p>
+                <p>My Experimental knowledge focuses on spectroscopy and quantum optics. I spent my undergraduate years working in labs doing resonance spectroscopy and terahertz spectroscopy, as well as designing and building circuits as necessary to facilitate experiments. Once in graduate school, I worked in an experimental quantum optics laboratory with the main focus being experiments on charged quantum dots. This work provided ample experience working on an optical table, planning and designing laser paths for multiple different experiments. Additionally, creating power supplies, creating circuits, troubleshooting electronic components with multimeters and other test equipment, and more as necessary for my day-to-day life in the lab.</p>
+                <p>My computational knowledge spans a wide variety of software and languages, with a focus on scientific simulations in Python. My coding experience arguably began with creating redstone logic gates in Minecraft as a child, but really took off in high school when I gained four years worth of training in SolidWorks. In Undergraduate, I learned LabView and breadboarding in an instrumentation class, as well as MatLab for experimental data treatment and Mathematica for its excellent animations and symbolic integration capabilities. In graduate school I automated processes and components in my lab using LabVIEW connected through a DAQBoard to electronic components. I furthered my experience with solidworks by designing experimental components when necessary. I spent much of my time in graduate school constructing a solver for open quantum systems using Floquet theory, which should soon be integrated with QuTiP, an open source quantum simulation package widely used around the world.</p>
+                <p>Below, you'll find some more specific examples of experience I've had in the computational and experimental realms. These are far from the limits of everything I've done, but I think they offer a good insight as to my knowledge and abilities.
+            </div>
+        </section>
+        <div class="inner">
+            <div class="row">
+                <div class="col-6 col-12-small">
+                    <h3>Experimental</h3>
+                    <p>
+                    <strong>Fast Polarization Switching:</strong> Designed an optical setup used to quickly switch incoming CW laser light from one orthogonal polarization to another, whether circular or linear. Utilized beam splitters, fiber optics, electro-optical modulators, and an arbitrary waveform generator to reconstruct the desired polarization effects at output while keeping laser amplitude constant.
+                    </p>
+                    <p>
+                    <strong>Optical Table Redesign:</strong> Redesigned and rebuilt complex free-space and fiber-optic optical paths on an optical table to significantly reduce number of mirrors, lenses, and other optical equipment necessary to support 4 concurrent laser paths on one optical table. 
+                    </p>
+                    <p>
+                    <strong>Foucault Speed of Light:</strong> Designed and tested experiment for students to complete to test the speed of light. Design required high precision to bounce a laser against 14 mirrors back and forth along a long hallway so as to measure the speed of light using a mirror rotating at a very specific rate.
+                    </p>
+                    <p>
+                    <strong>Terahertz Spectroscopy:</strong> Utilized the terahertz low skin-depth to complete surface-conductivity measurements of graphene samples. Created Matlab scripts to analyze the data received to construct 2D maps of graphene surface conductivity. Created and presented poster at a poster session.
+                    </p>
+                    <p>
+                    <strong>Microfabrication:</strong> Complete multiple projects in a clean room, gaining experience in clean room work and practices. Completed multiple projects on photolithography, completing every step of the process including thin film vapor deposition, coating, alignment, and more to yield microchips.
+                    </p>
+                </div>
+                <div class="col-6 col-12-small">
+                    <h3>Computational</h3>
+                    <p>
+                    <strong>FLiMESolve:</strong> Created a new ODE solver for open quantum systems in the weak coupling regime, under a time-cyclical driving force. This solver utilizes Floquet theory, and is in the process of being integrated into QuTiP, an open-source Python package which is used by scientists around the world to simulate quantum dynamics. Solution speeds of FLiMESolve are up to 6 times faster than other solvers for tested systems. Spent time after graduate school refining simulation framework in Japan at RIKEN, emphasizing speed and generalizeability.
+                    </p>
+                    <p>
+                    <strong>Data Treatment:</strong> Utilized MATLAB to perform data treatment and image analysis on spectrometer images created from quantum dot photoluminescence. Helped to create and maintain scripts to do automatically locate and analyze the spectral properties of a quantum dot excited by a laser(s) under various conditions. 
+                    </p>
+                    <p>
+                    <strong>Automation:</strong> Created and maintained LabVIEW code for used to automate experimental processes and analysis in an experimental optics lab. This involved communication and control of components (servos, signals from monitoring equipment, etc.) through both analog and digital ports on a DAQBoard, as well as communicating with various other software and components through proprietary connections to the lab PC. 
+                    </p>
+                    <p>
+                    <strong>High Performance Computing:</strong> Completed projects on  the calculation of band structure diagrams for various semiconductor materials (GaAs,AlGaAs,and others).  These calculating required  shell scripting and parallelization to spread the heavy  computation over multiple computational nodes.
+                    </p>
+                    <p>
+                    <strong>Antenna Array:</strong> Completed a project centered on designing an (dipole approximation) antenna array to most efficiently direct radiation in a specific direction. Simulations designed to automatically calculate the angular and radial dependence of the radiation emitted from a user-input NxM antenna array.
+                    </p>
+                </div>
+             </div>
+        </div>
+        </section>
+        <div class="inner">
+            <h3>Languages and Libraries</h3>
+                <p>
+                Python, Matlab, C++, SolidWorks, R, Labview, SQL, HTML, LaTeX, Git, Jupyter, NumPy, Django, SciPy, Pandas, Matplotlib
+                </p>
+            <h3>Coding Experience</h3>
+                <p>
+                High Performance Computing, Dependency Management, PEP 8 coding Standards, Machine Learning, Parallel Computing, Mathematical Modeling, Scripting, Software Testing and Troubleshooting, Object-Oriented Programming, Functional Programming
+                </p>
+            <h3>Technical Skills</h3>
+                <p>
+                Optical Table Alignment & Imaging Systems, Device design and prototyping, free-space optical systems, fiber-optic optical systems, Optical Test and Measurement, Optical Engineering, Technical Drawing, Technical Writing, Fiber Optics,  Cleanroom Protocols & Safety, Semiconductor Device Fabrication, Photoluminescence Spectroscopy, 
+                </p>
+    </div>
+    
+{% endblock %}

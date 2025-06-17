@@ -6,28 +6,31 @@ from .models import Person, Project, Technology, Skill, ProjectImage
 
 def home(request):
     """View function for home page of site."""
+    # Getting my Object
+    Me_Object = Person.objects.get(first_name="Fenton")
+    # Providing contact info
+    email = Me_Object.email
+    phone = Me_Object.phone
+    location = Me_Object.location
 
-    # # Generate counts of some of the main objects
-    # num_books = Book.objects.all().count()
-    # num_instances = BookInstance.objects.all().count()
-
-    # # Available books (status = 'a')
-    # num_instances_available = BookInstance.objects.filter(
-    #     status__exact="a"
-    # ).count()
-
-    # # The 'all()' is implied by default.
-    # num_authors = Author.objects.count()
-
-    # context = {
-    #     "num_books": num_books,
-    #     "num_instances": num_instances,
-    #     "num_instances_available": num_instances_available,
-    #     "num_authors": num_authors,
-    # }
+    context = {"email": email, "phone": phone, "location": location}
 
     # Render the HTML template index.html with the data in the context variable
-    return render(request, "home.html")  # , context=context)
+    return render(request, "home.html", context=context)
+
+
+def resume(request):
+    # Getting my Object
+    Me_Object = Person.objects.get(first_name="Fenton")
+    # Providing contact info
+    email = Me_Object.email
+    phone = Me_Object.phone
+    location = Me_Object.location
+
+    context = {"email": email, "phone": phone, "location": location}
+
+    # Render the HTML template index.html with the data in the context variable
+    return render(request, "resume.html", context=context)
 
 
 def landing(request):
@@ -35,7 +38,17 @@ def landing(request):
 
 
 def generic(request):
-    return render(request, "generic.html")
+    # Getting my Object
+    Me_Object = Person.objects.get(first_name="Fenton")
+    # Providing contact info
+    email = Me_Object.email
+    phone = Me_Object.phone
+    location = Me_Object.location
+
+    context = {"email": email, "phone": phone, "location": location}
+
+    # Render the HTML template index.html with the data in the context variable
+    return render(request, "generic.html", context=context)
 
 
 def elements(request):

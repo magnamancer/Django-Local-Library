@@ -28,6 +28,7 @@ class Person(models.Model):
 
     # Contact Info
     email = models.CharField(max_length=50)
+    phone = models.CharField(max_length=50, null=True)
     linkedin = models.URLField(max_length=50)
     github = models.URLField(max_length=50)
 
@@ -37,7 +38,7 @@ class Person(models.Model):
 
     def __str__(self):
         """String for representing the Model object."""
-        return self.title
+        return self.first_name
 
     def get_absolute_url(self):
         """Returns the URL to access a detail record for this Person."""

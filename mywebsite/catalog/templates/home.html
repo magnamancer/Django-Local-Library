@@ -15,7 +15,7 @@
 
 				<!-- Header -->
 					<header id="header" class="alt">
-						<a href="{% url 'home' %}" class="logo"><strong>Professional</strong> <span>Website</span></a>
+						<a href="{% url 'home' %}" class="logo"><strong>Professional</strong> <span>Experience</span></a>
 						<nav>
 							<a href="#menu">Menu</a>
 						</nav>
@@ -28,6 +28,7 @@
 							<li><a href="{% url 'landing' %}">Landing</a></li>
 							<li><a href="{% url 'generic' %}">Generic</a></li>
 							<li><a href="{% url 'elements' %}">Elements</a></li>
+							<li><a href="{% url 'resume' %}">Resume</a></li>
 						</ul>
 						<ul class="actions stacked">
 							<li><a href="#" class="button primary fit">Get Started</a></li>
@@ -59,15 +60,15 @@
 									<header class="major">
 										<h2>About Me</h2>
 									</header>
-									<p style="text-align: center;">I have a PhD in physics with a focus on computational quantum mechanics. 
-									I contribute a deep understanding of math and science, and a naturally 
-									curious mind lifted by years of rigorous training to be an excellent  
-									problem solver. Trained in experimental and computational physics, I 
-									am capable of tackling any problem you can give me. This website serves as a
-									larger look at me and what I can do. Below, you can find my extended resume and
-									coding (or otherwise) projects I've completed, to serve as examples of my. 
-									knowledge and experience. Please explore and reach out to me with the form 
-									below if you'd like to talk.
+									<p style="text-align: center;">Hey there, I'm Fenton! I have a PhD in physics 
+									with a focus on computational quantum mechanics. I contribute a deep understanding
+									of math and science, and a naturally curious mind lifted by years of rigorous 
+									training to be an excellent problem solver. Trained in experimental and 
+									computational physics, I am capable of tackling any problem you can give me. 
+									I built this website to serve as a larger look at me and what I can do. Below, you can 
+									find my extended resume and some of the coding (or otherwise) projects I've completed, 
+									to serve as examples of my skills and experience. Please explore and reach out
+								    to me with the form below if you'd like to talk!
     									</p>
 
 								</div>
@@ -77,20 +78,20 @@
 							<section id="two" class="tiles">
 								<article>
 									<span class="image">
-										<img src="images/pic01.jpg" alt="" />
+										<img src="{% static 'images/pic01.jpg' %}"" alt="" />
 									</span>
 									<header class="major">
-										<h3><a href="landing.html" class="link">Full Resume</a></h3>
+										<h3><a href="{% url 'resume' %}" class="link">Extended Resume</a></h3>
 										<p>A longer look</p>
 									</header>
 								</article>
 								<article>
 									<span class="image">
-										<img src="images/pic02.jpg" alt="" />
+										<img src="{% static 'images/pic02.jpg' %}"" alt="" />
 									</span>
 									<header class="major">
 										<h3><a href="landing.html" class="link">Projects</a></h3>
-										<p>Where I learn</p>
+										<p>What I've Done</p>
 									</header>
 								</article>
 							</section>
@@ -127,23 +128,21 @@
 									<div class="contact-method">
 										<span class="icon solid alt fa-envelope"></span>
 										<h3>Email</h3>
-										<a href="#">information@untitled.tld</a>
+										<a >{{ email }}</a>
 									</div>
 								</section>
 								<section>
 									<div class="contact-method">
 										<span class="icon solid alt fa-phone"></span>
 										<h3>Phone</h3>
-										<span>(000) 000-0000 x12387</span>
+										<span>{{ phone }}</span>
 									</div>
 								</section>
 								<section>
 									<div class="contact-method">
 										<span class="icon solid alt fa-home"></span>
 										<h3>Address</h3>
-										<span>1234 Somewhere Road #5432<br />
-										Nashville, TN 00000<br />
-										United States of America</span>
+										<span>{{ location }}</span>
 									</div>
 								</section>
 							</section>
@@ -154,11 +153,9 @@
 					<footer id="footer">
 						<div class="inner">
 							<ul class="icons">
-								<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-								<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+								<li><a href="https://www.instagram.com/fentonclawson/" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="https://github.com/magnamancer" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="https://www.linkedin.com/in/fenton-clawson/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
 							</ul>
 							<ul class="copyright">
 								<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
