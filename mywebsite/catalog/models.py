@@ -50,8 +50,16 @@ class Project(models.Model):
 
     # Setting up Basic Info
     title = models.CharField(max_length=50)
-    short_desc = models.CharField(max_length=100)
-    long_desc = models.CharField(max_length=50)
+    short_desc = models.TextField(
+        max_length=100,
+        null=True,
+        help_text="Enter the project description",
+    )
+    long_desc = models.TextField(
+        max_length=5000,
+        null=True,
+        help_text="Enter the project description",
+    )
     start_date = models.DateField(null=True)
     end_date = models.DateField(null=True)
     difficulty = models.CharField(

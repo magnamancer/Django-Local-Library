@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Person, Project, Technology, Skill, ProjectImage
+from django.views import generic
 
 # Create your views here.
 
@@ -31,6 +32,20 @@ def resume(request):
 
     # Render the HTML template index.html with the data in the context variable
     return render(request, "resume.html", context=context)
+
+
+def projects_page(request):
+    # Getting my Object
+    project_list = Project.objects.all()
+
+    context = {"project_list": project_list}
+
+    # Render the HTML template index.html with the data in the context variable
+    return render(request, "project_list.html", context=context)
+
+
+class project_detail_view(generic.DetailView):
+    model = Project
 
 
 def landing(request):

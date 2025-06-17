@@ -1,0 +1,46 @@
+{% extends "landing.html" %}
+{% load static %}
+
+{% block Header %}
+    <section id="banner" class="style2">
+        <div class="inner">
+            <span class="image">
+                <img src="images/pic07.jpg" alt="" />
+            </span>
+            <header class="major">
+                <h1>My Projects</h1>
+            </header>
+            <div class="content">
+                <p>On this page you can find some of the projects I've done. It will mostly be code projects, but there may be one or two experimental or more "physicsal" projects thrown in.</p>
+              </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block section1 %}
+{% endblock %}
+
+{% block section2 %}
+    
+    <section id="two" class="spotlights">
+        {% for project in project_list %}
+            <section>
+                <a href="generic.html" class="image">
+                    <img src="images/pic08.jpg" alt="" data-position="center center" />
+                </a>
+                <div class="content">
+                    <div class="inner">
+                        <header class="major">
+                            <h3>{{ project.title }}</h3>
+                        </header>
+                        <p>{{ project.short_desc }}</p>
+                        <ul class="actions">
+                            <li><a href="{{ project.get_absolute_url }}" class="button">Learn more</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+         {% endfor %}
+    </section>
+   
+{% endblock %}  

@@ -7,11 +7,13 @@
 -->
 <html>
 	<head>
-		<title>Landing - Forty by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
-		<noscript><link rel="stylesheet" href="{% static 'assets/css/main.css' %}" /></noscript>
+    	
+  		<title>Landing - Forty by HTML5 UP</title>
+  		<meta charset="utf-8" />
+  		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+  		<noscript><link rel="stylesheet" href="{% static 'assets/css/main.css' %}" /></noscript>
+
 	</head>
 	<body class="is-preload">
 
@@ -34,7 +36,8 @@
 							<li><a href="{% url 'landing' %}">Landing</a></li>
 							<li><a href="{% url 'generic' %}">Generic</a></li>
 							<li><a href="{% url 'elements' %}">Elements</a></li>
-							<li><a href="{% url 'resume' %}">Resume</a></li>							
+							<li><a href="{% url 'resume' %}">Resume</a></li>	
+							<li><a href="{% url 'projects' %}">Projects</a></li>						
 						</ul>
 						<ul class="actions stacked">
 							<li><a href="#" class="button primary fit">Get Started</a></li>
@@ -44,25 +47,28 @@
 
 				<!-- Banner -->
 				<!-- Note: The "styleN" class below should match that of the header element. -->
-					<section id="banner" class="style2">
-						<div class="inner">
-							<span class="image">
-								<img src="images/pic07.jpg" alt="" />
-							</span>
-							<header class="major">
-								<h1>Landing</h1>
-							</header>
-							<div class="content">
-								<p>Lorem ipsum dolor sit amet nullam consequat<br />
-								sed veroeros. tempus adipiscing nulla.</p>
-							</div>
-						</div>
-					</section>
+    				{% block Header %}
+    					<section id="banner" class="style2">
+    						<div class="inner">
+    							<span class="image">
+    								<img src="images/pic07.jpg" alt="" />
+    							</span>
+    							<header class="major">
+    								<h1>Landing</h1>
+    							</header>
+    							<div class="content">
+    								<p>Lorem ipsum dolor sit amet nullam consequat<br />
+    								sed veroeros. tempus adipiscing nulla.</p>
+    							</div>
+    						</div>
+    					</section>
+					{% endblock %}
 
 				<!-- Main -->
 					<div id="main">
 
 						<!-- One -->
+						{% block section1 %}
 							<section id="one">
 								<div class="inner">
 									<header class="major">
@@ -71,8 +77,10 @@
 									<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna.</p>
 								</div>
 							</section>
+						 {% endblock %}
 
 						<!-- Two -->
+						{% block section2 %}
 							<section id="two" class="spotlights">
 								<section>
 									<a href="generic.html" class="image">
@@ -123,8 +131,9 @@
 									</div>
 								</section>
 							</section>
-
+                        {% endblock %}
 						<!-- Three -->
+						{% block section3 %}
 							<section id="three">
 								<div class="inner">
 									<header class="major">
@@ -136,7 +145,7 @@
 									</ul>
 								</div>
 							</section>
-
+                         {% endblock %}
 					</div>
 
 				<!-- Contact -->

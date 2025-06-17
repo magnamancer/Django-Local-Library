@@ -8,4 +8,10 @@ urlpatterns = [
     path("generic/", views.generic, name="generic"),
     path("elements/", views.elements, name="elements"),
     path("resume/", views.resume, name="resume"),
+    path("projects/", views.projects_page, name="projects"),
+    path(
+        "projects/<int:pk>",
+        views.project_detail_view.as_view(),
+        name="project-detail",
+    ),
 ]
