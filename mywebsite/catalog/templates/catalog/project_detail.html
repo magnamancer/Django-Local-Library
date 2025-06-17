@@ -1,1 +1,54 @@
 {% extends "generic.html" %}
+{% block content %}	
+    <div id="main" class="alt">
+        
+        <!-- One -->
+            <section id="one">
+                <div class="inner">
+                    <header class="major">
+                        <h1>
+                        
+                            <div class="header-content"> 
+                                <h1>{{ project.title }}</h1>
+                                <div class="header-meta"> 
+                                    <p><strong>Technology:</strong>
+                                    {% for tech in project.tech.all %}
+                                        {{ tech.title }}{% if not forloop.last %},{%endif%}
+                                    {% endfor %}</p>
+                                    <p><strong>Skills:</strong>
+                                    {% for skill in project.skills.all %}
+                                        {{ skill.title }}{% if not forloop.last %},{%endif%}
+                                    {% endfor %}
+                                    </p>
+                                </div>
+                            </div> 
+                        </h1>
+                    </header>
+                    <p> {{ project.long_desc|linebreaks }} </p>
+                </div>
+            </section>
+            <section id="two" class="spotlights">
+                {% if project.media.all %}
+                    {% for media_item in project.media.all %}
+                        <section>
+                            <a href="{{ media_item.file.url }}"class="resizable-image" width="400" >
+                               <img src="{{ media_item.file.url }}" alt="" data-position="center center" 
+                               class="resizable-image" width="400"/>
+                            </a>
+                            <div class="content">
+                                <div class="inner">
+                                    <header class="major">
+                                        <h3>{{ media_item.title }}</h3>
+                                    </header>
+                                    <p>{{ media_item.caption }}</p>
+                                </div>
+                            </div>
+                        </section>
+                    {% endfor %}
+                 {% else %}
+                    <p>No media available for this project.</p>
+                 {% endif %}
+            </section>
+            
+    </div>
+{% endblock %}

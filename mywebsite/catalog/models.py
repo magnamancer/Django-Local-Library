@@ -124,8 +124,8 @@ class ProjectImage(models.Model):
     )
     title = models.CharField(max_length=200, blank=True)
     # Use FileField for general file uploads
-    file = models.FileField(upload_to="project_media/")
-    caption = models.CharField(max_length=255, blank=True)
+    file = models.FileField(upload_to="")
+    caption = models.CharField(max_length=500, blank=True)
     # Add a field to specify the type of media for frontend rendering
     MEDIA_TYPES = [
         ("image", "Image"),

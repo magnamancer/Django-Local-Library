@@ -49,7 +49,17 @@ class project_detail_view(generic.DetailView):
 
 
 def landing(request):
-    return render(request, "landing.html")
+    # Getting my Object
+    Me_Object = Person.objects.get(first_name="Fenton")
+    # Providing contact info
+    email = Me_Object.email
+    phone = Me_Object.phone
+    location = Me_Object.location
+
+    context = {"email": email, "phone": phone, "location": location}
+
+    # Render the HTML template index.html with the data in the context variable
+    return render(request, "landing.html", context=context)
 
 
 def generic(request):
