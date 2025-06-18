@@ -116,7 +116,7 @@ class Skill(models.Model):
         return reverse("skill-detail", args=[str(self.id)])
 
 
-class ProjectImage(models.Model):
+class ProjectMedia(models.Model):
     """Model representing a Specific piece of Media for a project"""
 
     project = models.ForeignKey(
@@ -126,6 +126,11 @@ class ProjectImage(models.Model):
     # Use FileField for general file uploads
     file = models.FileField(upload_to="")
     caption = models.CharField(max_length=500, blank=True)
+    long_desc = models.TextField(
+        max_length=5000,
+        null=True,
+        help_text="Enter the media description",
+    )
     # Add a field to specify the type of media for frontend rendering
     MEDIA_TYPES = [
         ("image", "Image"),
@@ -140,9 +145,12 @@ class ProjectImage(models.Model):
     )
     order = models.PositiveIntegerField(default=0)
 
+    class Meta:
+        ordering = ["order"]
+
     def __str__(self):
         return f"{self.project.title} - {self.title or self.file.name}"
 
     # You might also add a method to get the URL
-    def get_media_url(self):
+    def get_absolute_url(self):
         return self.file.url

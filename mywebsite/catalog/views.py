@@ -1,40 +1,22 @@
 from django.shortcuts import render
-from .models import Person, Project, Technology, Skill, ProjectImage
+from .models import Person, Project, Technology, Skill, ProjectMedia
 from django.views import generic
-
-# Create your views here.
 
 
 def home(request):
     """View function for home page of site."""
-    # Getting my Object
-    Me_Object = Person.objects.get(first_name="Fenton")
-    # Providing contact info
-    email = Me_Object.email
-    phone = Me_Object.phone
-    location = Me_Object.location
-
-    context = {"email": email, "phone": phone, "location": location}
-
-    # Render the HTML template index.html with the data in the context variable
+    context = {}
     return render(request, "home.html", context=context)
 
 
 def resume(request):
-    # Getting my Object
-    Me_Object = Person.objects.get(first_name="Fenton")
-    # Providing contact info
-    email = Me_Object.email
-    phone = Me_Object.phone
-    location = Me_Object.location
-
-    context = {"email": email, "phone": phone, "location": location}
-
-    # Render the HTML template index.html with the data in the context variable
+    """View function for resume page of site."""
+    context = {}
     return render(request, "resume.html", context=context)
 
 
 def projects_page(request):
+    """View function for projects page of site."""
     # Getting my Object
     project_list = Project.objects.all()
 
@@ -45,36 +27,29 @@ def projects_page(request):
 
 
 class project_detail_view(generic.DetailView):
+    """View function for individual project detail views site."""
+
     model = Project
 
 
+class media_detail_view(generic.DetailView):
+    """View function for individual media detail views site."""
+
+    model = ProjectMedia
+
+
 def landing(request):
-    # Getting my Object
-    Me_Object = Person.objects.get(first_name="Fenton")
-    # Providing contact info
-    email = Me_Object.email
-    phone = Me_Object.phone
-    location = Me_Object.location
-
-    context = {"email": email, "phone": phone, "location": location}
-
-    # Render the HTML template index.html with the data in the context variable
+    """View function for landing page of site."""
+    context = {}
     return render(request, "landing.html", context=context)
 
 
 def generic(request):
-    # Getting my Object
-    Me_Object = Person.objects.get(first_name="Fenton")
-    # Providing contact info
-    email = Me_Object.email
-    phone = Me_Object.phone
-    location = Me_Object.location
-
-    context = {"email": email, "phone": phone, "location": location}
-
-    # Render the HTML template index.html with the data in the context variable
+    """View function for generic page of site."""
+    context = {}
     return render(request, "generic.html", context=context)
 
 
 def elements(request):
+    """View function for site page with various design elements."""
     return render(request, "elements.html")

@@ -28,6 +28,15 @@ section, summary, time, mark, audio, video {
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
+.responsive-image {
+            max-width: 1200px;  
+            max-height: 900px; 
+            height: auto;      
+            width: auto;       
+            display: block;    
+            border: 1px solid blue; 
+            margin-bottom: 1em
+}
 .resizable-image {
     display: block;
     margin: auto;
@@ -60,7 +69,7 @@ footer, header, hgroup, menu, nav, section {
     overflow-wrap: break-word;
 }
 .header-meta p:first-of-type {
-    margin-bottom: 0.5em; /* Adjust this value as needed */
+    margin-bottom: 0.5em; 
 }
 
 @media screen and (max-width: 736px) { 

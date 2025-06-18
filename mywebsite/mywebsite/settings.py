@@ -17,8 +17,8 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Define where uploaded media files will be stored and served from
-MEDIA_URL = ""
-MEDIA_ROOT = os.path.join(BASE_DIR, "project_media")
+MEDIA_URL = "/project_media/"
+MEDIA_ROOT = BASE_DIR / "project_media"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -68,6 +68,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "catalog.context_processors.contact_info",
             ],
         },
     },

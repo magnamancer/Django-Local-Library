@@ -1,0 +1,18 @@
+{% extends "generic.html" %}
+{% load static %}
+{% block content %}	
+    <div id="main" class="alt">
+            <!-- One -->
+                <section id="one">
+                    <div class="inner">
+                        <header class="major">
+                            <h1>{{ projectmedia.title }}</h1>
+                        </header>
+                        <img src="{{  projectmedia.get_absolute_url }}" alt="" data-position="center center" 
+                        class="responsive-image" />
+    					<p>{{ projectmedia.long_desc|linebreaks  }}</p>
+    					</div>
+                </section>
+    
+    </div>
+{% endblock %}

@@ -15,4 +15,14 @@ urlpatterns = [
         views.project_detail_view.as_view(),
         name="project-detail",
     ),
+    path(
+        "project_media/<int:pk>",
+        views.media_detail_view.as_view(),
+        name="media-detail",
+    ),
+    # path(
+    #     "projects/<int:project_pk>/media/<int:media_pk>/",
+    #     views.media_detail_view.as_view(),
+    #     name="media-detail",
+    # ),
 ]
