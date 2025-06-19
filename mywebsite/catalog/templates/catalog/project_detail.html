@@ -31,7 +31,7 @@
                 {% if project.media.all %}
                     {% for media_item in project.media.all %}
                         <section>
-                            <a href="{% url 'media-detail' media_item.pk %}" class="resizable-image" width="400" >
+                            <a href="{% url 'media-detail' media_item.media_type media_item.pk %}" class="resizable-image" width="400" >
                                <img src="{{  media_item.get_absolute_url }}" alt="" data-position="center center" 
                                class="resizable-image" width="400"/>
                             </a>

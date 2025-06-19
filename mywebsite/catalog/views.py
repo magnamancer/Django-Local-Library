@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Person, Project, Technology, Skill, ProjectMedia
 from django.views import generic
 
@@ -32,10 +32,16 @@ class project_detail_view(generic.DetailView):
     model = Project
 
 
-class media_detail_view(generic.DetailView):
+def media_detail_view(request, media_type, pk):
     """View function for individual media detail views site."""
 
-    model = ProjectMedia
+    media_instance = get_object_or_404(ProjectMedia, pk=pk)
+
+    context = {"projectmedia": media_instance, "media_type": media_type}
+    """Need to return different templates for different media types, so that
+        I can include all sorts of media and designs for different media"""
+    template_name = f"catalog/projectmedia_detail_{media_type}.html"
+    return render(request, template_name, context=context)
 
 
 def landing(request):

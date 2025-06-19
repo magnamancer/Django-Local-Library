@@ -16,8 +16,8 @@ urlpatterns = [
         name="project-detail",
     ),
     path(
-        "project_media/<int:pk>",
-        views.media_detail_view.as_view(),
+        "project_media/<str:media_type>/<int:pk>/",
+        views.media_detail_view,
         name="media-detail",
     ),
     # path(
