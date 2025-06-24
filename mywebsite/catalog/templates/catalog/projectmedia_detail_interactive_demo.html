@@ -1,0 +1,80 @@
+{% extends "generic.html" %}
+{% load static %}
+
+{% block title %}
+    {{ projectmedia.title }} - Interactive Demo
+{% endblock %}
+
+{% block content %}
+    <div id="main" class="alt">
+        <section id="one">
+            <div class="inner">
+                <header class="major">
+                    <h1>{{ projectmedia.title }}</h1>
+                </header>
+
+            <h2>Interactive Data Visualization</h2>
+            
+            
+            
+            
+        </section>    
+    </div>
+            
+        
+            <div class="row">
+                <div class="col-md-4">
+                    <form method="post">
+                        {% csrf_token %} {# Django's security token for forms #}
+                        {{ form.as_p }} {# Renders your form fields as paragraphs #}
+                        <button type="submit" class="btn btn-primary">Update Chart</button>
+                    </form>
+        
+                    {% if interactive_demo_data.form_error %}
+                        <div class="alert alert-danger mt-3" role="alert">
+                            <strong>Error:</strong> {{ interactive_demo_data.form_error }}
+                        </div>
+                    {% endif %}
+        
+                    {% if interactive_demo_data.x_var_selected and interactive_demo_data.y_var_selected %}
+                        <p class="mt-3">
+                            <strong>Current Plot:</strong>
+                            {{ interactive_demo_data.y_var_selected|capfirst|replace:"_" with " " }} vs. {{ interactive_demo_data.x_var_selected|capfirst|replace:"_" with " " }}
+                        </p>
+                    {% endif %}
+                </div>
+                <div class="col-md-8">
+                    {# The div where Plotly will render the chart #}
+                    <div id="plotly-chart" style="width:100%; height:600px;"></div>
+                </div>
+            </div>
+            <p>{{ projectmedia.long_desc|linebreaks  }}</p>
+    </div>
+{% endblock %}
+
+{% block extra_head %}
+    {# Include Plotly.js library from a CDN #}
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+{% endblock %}
+
+{% block extra_js %}
+    <script>
+        // Get the Plotly data from Django context
+        // The `json_script` tag safely escapes JSON data for use in JavaScript
+        var plotData = JSON.parse(document.getElementById('plotly-data-json').textContent);
+
+        // Check if plotData exists before attempting to plot
+        if (plotData) {
+            Plotly.newPlot('plotly-chart', plotData.data, plotData.layout);
+        } else {
+            // Optional: Display a message if no plot data is available
+            document.getElementById('plotly-chart').innerHTML = '<p class="text-muted text-center mt-5">Select variables and update the chart.</p>';
+        }
+    </script>
+{% endblock %}
+
+{# This hidden script tag is crucial for safely passing JSON data from Django to JavaScript #}
+{# Place this just before the closing </body> tag or at the end of your block content #}
+<script id="plotly-data-json" type="application/json">
+    {{ interactive_demo_data.plotly_data|safe }}
+</script>

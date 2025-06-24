@@ -1,4 +1,5 @@
 {% extends "generic.html" %}
+{% load static %}
 {% block content %}	
     <div id="main" class="alt">
         
@@ -31,9 +32,18 @@
                 {% if project.media.all %}
                     {% for media_item in project.media.all %}
                         <section>
-                            <a href="{% url 'media-detail' media_item.media_type media_item.pk %}" class="resizable-image" width="400" >
-                               <img src="{{  media_item.get_absolute_url }}" alt="" data-position="center center" 
-                               class="resizable-image" width="400"/>
+                            <a href="{% url 'media-detail' media_item.media_type media_item.pk %}" >
+                                {% if media_item.media_type == "image" %}
+                                   <img src="{{  media_item.get_absolute_url }}" alt="" data-position="center center" 
+                                   class="resizable-image" width="400"/>
+                                {% elif media_item.media_type == "html_demo" %}
+                                    <img src="{% static 'images/Chart.png' %}" alt="" data-position="center center" 
+                                    class="resizable-image" width="400"/>
+                                {% else %}
+                                    media_item.media_type
+                                    You haven't created a thumbnail for this media type yet, Fenton
+                                {% endif %}
+                                
                             </a>
                             <div class="content">
                                 <div class="inner">

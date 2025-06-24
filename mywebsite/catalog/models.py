@@ -60,22 +60,22 @@ class Project(models.Model):
         null=True,
         help_text="Enter the project description",
     )
-    start_date = models.DateField(null=True)
-    end_date = models.DateField(null=True)
+    start_date = models.DateField(null=True, blank=True)
+    end_date = models.DateField(null=True, blank=True)
     difficulty = models.CharField(
-        max_length=10, help_text="Difficulty out of 10"
+        max_length=10, help_text="Difficulty out of 10", null=True, blank=True
     )
 
     # Setting up skills and tech relations
-    tech = models.ManyToManyField("Technology")
-    skills = models.ManyToManyField("Skill")
+    tech = models.ManyToManyField("Technology", null=True)
+    skills = models.ManyToManyField("Skill", null=True)
 
     # Links to Relevant Stuff
-    project_git = models.URLField(max_length=50, null=True)
-    live_demo_link = models.URLField(max_length=50, null=True)
+    project_git = models.URLField(max_length=50, null=True, blank=True)
+    live_demo_link = models.URLField(max_length=50, null=True, blank=True)
 
     # I'll figure out how to use this thing later
-    slug = models.SlugField()
+    slug = models.SlugField(null=True, blank=True)
 
     def __str__(self):
         """String for representing the Model object."""
@@ -124,19 +124,20 @@ class ProjectMedia(models.Model):
     )
     title = models.CharField(max_length=200, blank=True)
     # Use FileField for general file uploads
-    file = models.FileField(upload_to="")
+    file = models.FileField(upload_to="", null=True, blank=True)
     caption = models.CharField(max_length=500, blank=True)
     long_desc = models.TextField(
         max_length=5000,
         null=True,
         help_text="Enter the media description",
+        blank=True,
     )
     # Add a field to specify the type of media for frontend rendering
     MEDIA_TYPES = [
         ("image", "Image"),
         ("video", "Video"),
         ("embed", "Embedded Content (e.g., YouTube/Vimeo)"),
-        ("html_demo", "HTML/JS Interactive Demo"),
+        ("html_demo", "Interactive Demo"),
         ("glb_model", "3D GLB Model"),
         # Add more as needed
     ]
