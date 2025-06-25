@@ -25,18 +25,9 @@
     <section id="two" class="spotlights">
         {% for project in project_list %}
             <section>
-                <a href="{{ project.get_absolute_url }}"  data-position="center center" height="auto"  class="resizable-image" width="400" >
+                <a href="{{ project.get_absolute_url }}" class="resizable-image" data-position="center center">
                     {% if project.media.all %}
-                        {% if project.media.all.0.media_type == "image" %}
-                           <img src="{{ project.media.all.1.file.url }}" alt="" data-position="bottom center" 
-                           class="resizable-image" width="400"/>
-                        {% elif project.media.all.0.media_type == "html_demo" %}
-                            <img src="{% static 'images/Chart.png' %}" alt="" data-position="center center" 
-                            class="resizable-image" width="400"/>
-                        {% else %}
-                            {{ project.media.all.0.media_type }}
-                            You haven't created a thumbnail for this media type yet, Fenton
-                        {% endif %}
+                        <img src="{{ project.media.all.1.file.url }}" alt="" class="resizable-image" width="400" data-position="bottom center" />
                     {%else%}
                          <img src="" alt="" data-position="center center" />
                     {%endif%}
